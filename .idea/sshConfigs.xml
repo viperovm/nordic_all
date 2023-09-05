@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SshConfigs">
+    <configs>
+      <sshConfig host="151.248.118.98" id="3315a97f-1d3c-457c-bdd5-17e0b531f5db" keyPath="$USER_HOME$/.ssh/id_rsa" port="22" nameFormat="DESCRIPTIVE" username="viperovm" />
+    </configs>
+  </component>
+</project>

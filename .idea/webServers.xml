@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="a02fa573-3172-4bf1-84db-df2e35d68952" name="nordic">
+        <fileTransfer rootFolder="/home/viperovm" accessType="SFTP" host="151.248.118.98" port="22" sshConfigId="3315a97f-1d3c-457c-bdd5-17e0b531f5db" sshConfig="viperovm@151.248.118.98:22 key" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

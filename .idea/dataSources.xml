@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="remote_nordic" uuid="2f10eab4-1aed-415b-83fa-fd6f05b8cd4e">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/nordic</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="nordic_data" uuid="f14fbf27-55b6-4328-b1f0-e5f7793f6f12">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/nordic_data</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="local_nordic" uuid="92fdac58-832d-40ce-8bee-91a254ac14c4">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/nordic</jdbc-url>
+    </data-source>
+  </component>
+</project>
