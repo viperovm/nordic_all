@@ -15,7 +15,7 @@ def send_message(mail_id):
     print('Таска сработала')
     obj = Mail.objects.get(pk=mail_id)
 
-    obj.counter += 1
+    obj.counter = 200
     # obj.text = obj
     obj.save()
 

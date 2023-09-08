@@ -19,8 +19,8 @@ class MailAdmin(admin.ModelAdmin):
         # super().save_model(request, obj, form, change)
         # obj.counter = 1
         obj.save()
+        # send_message(obj.id)
         send_message.delay(obj.id)
-        # send_message.delay(obj.id)
         # send_message.s(obj.id).apply_async(countdown=10)
 
 
