@@ -39,7 +39,7 @@ class Mail(models.Model):
     text = models.TextField(verbose_name='Текст письма', null=True, blank=True)
     image = models.ImageField(verbose_name='Изображение', max_length=255, upload_to='images/')
     date = models.DateTimeField(verbose_name='Дата отправки', auto_now=True, null=True, blank=True)
-    counter = models.CharField(max_length=10, verbose_name='Писем отправлено', default=0)
+    counter = models.IntegerField(verbose_name='Писем отправлено', default=0)
     test_mailing = models.BooleanField(verbose_name='Тестовая рассылка', default=False)
 
     def __str__(self):

@@ -5,6 +5,8 @@ from django.core.mail import get_connection, EmailMultiAlternatives, send_mail
 from errors.models import MassMailErrors
 from .models import Mail, UserList
 
+from django.db.models import F
+
 import datetime
 
 from django.template.loader import get_template
@@ -13,11 +15,12 @@ from django.template.loader import get_template
 @shared_task()
 def send_message(mail_id):
     print('Таска сработала')
-    obj = Mail.objects.get(pk=mail_id)
 
-    obj.counter = 200
+    Mail.objects.filter(pk=mail_id).update(counter=F('counter')+1)
+
+    # obj.counter = 200
     # obj.text = obj
-    obj.save()
+    # obj.save()
 
     # print(obj)
     #
