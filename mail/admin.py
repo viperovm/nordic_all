@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .models import *
-from .task import send_message
+from .tasks import send_message
 
 
 class UserListAdmin(admin.ModelAdmin):
