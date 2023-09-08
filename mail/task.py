@@ -12,6 +12,7 @@ from django.template.loader import get_template
 
 @shared_task()
 def send_message(mail_id):
+    print('Таска сработала')
     obj = Mail.objects.get(pk=mail_id)
 
     obj.counter += 1
