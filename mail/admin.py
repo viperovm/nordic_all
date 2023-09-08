@@ -16,12 +16,9 @@ class MailAdmin(admin.ModelAdmin):
     readonly_fields = ('counter',)
 
     def save_model(self, request, obj, form, change):
-        # super().save_model(request, obj, form, change)
-        # obj.counter = 1
+        obj.counter = 0
         obj.save()
-        # send_message(obj.id)
         send_message.delay(obj.id)
-        # send_message.s(obj.id).apply_async(countdown=10)
 
 
 admin.site.register(UserList, UserListAdmin)
