@@ -18,20 +18,6 @@ def image_directory_path(instance, filename):
     return '{0}/{1}{2}'.format(folder, slugify(unidecode(name)), '.jpg')
 
 
-class UserList(models.Model):
-    name = models.CharField(max_length=70, verbose_name='Имя', null=True, blank=True)
-    last_name = models.CharField(max_length=70, verbose_name='Фамилия', null=True, blank=True)
-    email = models.EmailField(verbose_name='E-mail', null=True, blank=True)
-    test_user = models.BooleanField(verbose_name='Тестовый поьзователь', default=False)
-
-    def __str__(self):
-        return self.name
-
-    class Meta:
-        verbose_name = 'Клиент'
-        verbose_name_plural = 'Список клиентов'
-
-
 class Mail(models.Model):
     subject = models.CharField(max_length=250, verbose_name='Тема письма', null=True, blank=True)
     heading = models.CharField(max_length=250, verbose_name='Заголовок', null=True, blank=True)
@@ -67,4 +53,21 @@ class Mail(models.Model):
     #         self.counter += 1
     #
     #     super(Mail, self).save()
+
+
+class UserList(models.Model):
+    name = models.CharField(max_length=70, verbose_name='Имя', null=True, blank=True)
+    last_name = models.CharField(max_length=70, verbose_name='Фамилия', null=True, blank=True)
+    email = models.EmailField(verbose_name='E-mail', null=True, blank=True)
+    test_user = models.BooleanField(verbose_name='Тестовый поьзователь', default=False)
+    mailings = models.ManyToManyField(Mail)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Клиент'
+        verbose_name_plural = 'Список клиентов'
+
+
 

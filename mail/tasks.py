@@ -1,3 +1,5 @@
+import time
+
 from celery import shared_task
 
 from django.core.mail import get_connection, EmailMultiAlternatives, send_mail
@@ -27,7 +29,7 @@ def send_message(mail_id):
     if obj.test_mailing:
         e_mail_list = UserList.objects.filter(test_user=True).values_list('email', flat=True)
     else:
-        e_mail_list = UserList.objects.values_list('email', flat=True)
+        e_mail_list = UserList.objects.exclude(mailings__id=mail_id).values_list('email', flat=True)
 
     for index, e_mail in enumerate(e_mail_list):
         try:
@@ -40,22 +42,10 @@ def send_message(mail_id):
                 fail_silently=False,
             )
             Mail.objects.filter(pk=mail_id).update(counter=F('counter')+1)
+            user = UserList.objects.get(email=e_mail)
+            user.mailings.add(obj)
         except Exception as e:
             error = MassMailErrors(subject=obj.subject, email=e_mail, text=e)
             error.save()
-
-
-
-
-# def send_message(subject, html, text, e_mail):
-#     try:
-#         send_mail(
-#             subject,
-#             text,
-#             'Nordic Way магазин комбинезонов <sales@nordicway.ru>',
-#             [e_mail],
-#             html_message=html,
-#             fail_silently=False,
-#         )
-#     except Exception as e:
-#         return e
+        if (index % 999) == 0:
+            time.sleep(1200)

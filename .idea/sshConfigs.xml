@@ -3,6 +3,7 @@
   <component name="SshConfigs">
     <configs>
       <sshConfig host="151.248.118.98" id="3315a97f-1d3c-457c-bdd5-17e0b531f5db" keyPath="$USER_HOME$/.ssh/id_rsa" port="22" nameFormat="DESCRIPTIVE" username="viperovm" />
+      <sshConfig host="172.16.22.9" id="faa2e42b-56d9-4acd-b59b-01ade4adfd49" keyPath="$USER_HOME$/.ssh/id_rsa" port="22" nameFormat="DESCRIPTIVE" username="stolica" />
     </configs>
   </component>
 </project>
