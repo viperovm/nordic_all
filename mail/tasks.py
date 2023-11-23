@@ -27,7 +27,7 @@ def send_message(mail_id):
     text = get_template('mailing_list_template_text.html').render(context)
 
     if obj.test_mailing:
-        e_mail_list = UserList.objects.filter(test_user=True).values_list('email', flat=True)
+        e_mail_list = UserList.objects.filter(test_user=True).exclude(mailings__id=mail_id).values_list('email', flat=True)
     else:
         e_mail_list = UserList.objects.exclude(mailings__id=mail_id).values_list('email', flat=True)
 
@@ -47,5 +47,5 @@ def send_message(mail_id):
         except Exception as e:
             error = MassMailErrors(subject=obj.subject, email=e_mail, text=e)
             error.save()
-        if (index % 999) == 0:
-            time.sleep(1200)
+        # if (index % 999) == 0:
+        #     time.sleep(1200)
